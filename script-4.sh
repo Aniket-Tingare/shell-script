@@ -7,7 +7,6 @@ if [ $# -eq 0 ]; then
 fi
 
 filename=$1
-backup_file="${filename}_$(date +%Y-%-m-%d_%H:%M:%S)"
 
 # Check if the file exists
 if [ ! -e "$filename" ]; then
@@ -15,6 +14,8 @@ if [ ! -e "$filename" ]; then
     exit 1
 fi
 
-# Create the backup file
-cp "$filename" "$backup_file"
-echo "Backup created: $backup_file"
+# Display file information
+echo "File name : $filename "
+echo "Size: $(du -h "$filename" | awk '{print $1}')"
+echo "Permissions: $(stat -c "%A" "$filename")"
+echo "Owner: $(stat -c "%U" "$filename")"
