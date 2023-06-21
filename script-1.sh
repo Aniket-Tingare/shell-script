@@ -1,4 +1,5 @@
-#!/bin/bash
+ #!/bin/bash
+
 
 # Prompt the user to enter the directory path
 read -p "Enter the directory path/name: " directory
